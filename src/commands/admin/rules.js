@@ -40,7 +40,9 @@ module.exports = {
             .setColor(0x0099ff);
 
         const channel = client.channels.cache.get(data.RoleChannel);
-        const pathImage = path.join(__dirname, '/src/img/rules.png');
+        const pathImage = path.resolve(
+            '/home/black/dev/bot-valkyria/src/img/rules.png',
+        );
         const canvas = Canvas.createCanvas(692, 317);
         const context = canvas.getContext('2d');
         const background = await Canvas.loadImage(pathImage);
@@ -71,7 +73,7 @@ module.exports = {
                             \n- **Divulgação**
                             \nQualquer tipo de divulgação não é permitida neste servidor, serão atendidos com sua remoção temporária ou permanente deste servidor.
                             \n- **Administração do Servidor**
-                            \nO servidor é composto pelo <@&1170782639880405102> e o <@&1170624993835634721>, os maiores cargos. Cada um tem sua jurisdição no servidor, portanto, respeite.
+                            \nO servidor é composto pelo <@&1262715370066804787>, os maiores cargos. Cada um tem sua jurisdição no servidor, portanto, respeite.
                             \nSe você concorda com todas as regras listadas clique no botão abaixo, para que o recrutamento seja liberado.
                             `);
 

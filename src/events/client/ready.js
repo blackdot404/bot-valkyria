@@ -14,12 +14,6 @@ module.exports = {
                 name: 'a gameplay criminosa do wells',
                 type: ActivityType.Watching,
             },
-
-            {
-                name: 'Ronphi está online.',
-                type: ActivityType.Streaming,
-                url: 'https://www.twitch.tv/ronphi',
-            },
         ];
 
         setInterval(() => {

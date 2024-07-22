@@ -1,8 +1,4 @@
-const {
-    SlashCommandBuilder,
-    PermissionFlagsBits,
-    EmbedBuilder,
-} = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 const UserGuild = require('../../models/UserGuild');
 
@@ -10,7 +6,6 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('recruit')
         .setDescription('Recrutamento de novos players.')
-        .setDefaultMemberPermissions(PermissionFlagsBits.SendMessages)
         .addStringOption((option) =>
             option
                 .setName('nome')

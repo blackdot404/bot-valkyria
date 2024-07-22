@@ -17,7 +17,8 @@ module.exports = {
         if (member.user.bot) return;
         const channel = data.Channel;
         const roleChannel = data.RoleChannel;
-        const msg = data.Msg;
+        const recruitChannel = data.RecruitChannel;
+
         // const recruitChannel = data.RecruitChannel;
         const classChannel = data.ClassChannel;
 
@@ -25,16 +26,11 @@ module.exports = {
 
         const welcomeChannel = await guild.channels.cache.get(channel);
 
-        // ativar quando for para a last warning
-        const rule = guild.roles.cache.get('1170630426868584508');
-        member.roles.add(rule);
-
         const welcomeEmbed = new EmbedBuilder()
             .setTitle(':mega: Bem vindo(a) :mega:')
             .setDescription(
                 `**${member}**, bem-vindo(a) ao servidor **${guild.name}**!
-                \nUma palavra rápida do chefe da guilda: 
-                \n**${msg}**
+                \nLeia as regras para liberar o recrutamento
                 \nAtualmente estamos com **${guild.memberCount} membros**.
                 \nVeja também :point_down:
                 \n`,
@@ -47,7 +43,7 @@ module.exports = {
                 },
                 {
                     name: ':handshake:Se apresente:',
-                    value: '<#1208259361013633064>',
+                    value: `<#${recruitChannel}>`,
                     inline: true,
                 },
                 {

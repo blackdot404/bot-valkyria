@@ -41,10 +41,10 @@ module.exports = {
                     .setColor(0x0099ff);
 
                 if (!data) {
-                    await UserGuildSettings.create(
-                        { LogChannel: logChannel.id },
-                        { where: { Guild: interaction.guild.id } },
-                    );
+                    await UserGuildSettings.create({
+                        Guild: interaction.guild.id,
+                        LogChannel: logChannel.id,
+                    });
                 } else {
                     await UserGuildSettings.update(
                         { LogChannel: logChannel.id },
@@ -56,6 +56,7 @@ module.exports = {
                     embeds: [embedSuccess],
                     ephemeral: true,
                 });
+                break;
             }
         }
     },

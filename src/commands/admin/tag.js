@@ -62,6 +62,14 @@ module.exports = {
                         .setName('grupo')
                         .setDescription('Insira o grupo que deseja ativar')
                         .setRequired(true),
+                )
+                .addStringOption((option) =>
+                    option
+                        .setName('titulo')
+                        .setDescription(
+                            'Insira um titulo para o sistema de reacao.',
+                        )
+                        .setRequired(true),
                 ),
         )
         .addSubcommand((subcommand) =>
@@ -76,7 +84,7 @@ module.exports = {
                 ),
         )
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles),
-    async execute(interaction) {
+    async execute(interaction, client) {
         const subcommand = interaction.options.getSubcommand();
 
         const userGuild = await UserGuild.findOne({
@@ -127,10 +135,10 @@ module.exports = {
                     idEmoji: emojiSplit[2],
                     strName: emojiSplit[1],
                     idRole: idRole.id,
+                    strRole: idRole.name,
                     idGroup: idGroup,
                     idGuild: userGuild.Guild,
                     idClassChannel: userGuild.ClassChannel,
-                    idMessageReaction: null,
                 })
                     .then(() => {
                         interaction.reply({
@@ -180,10 +188,64 @@ module.exports = {
                 break;
             }
 
-            case 'ttl': {
-                const idEmoji = interaction.options.getString('emoji');
+            case 'at': {
+                const idGroup = interaction.options.getInteger('grupo');
+                const tituloEmbed = interaction.options.getString('titulo');
+
+                const userReact = await UserReacts.findAll({
+                    attributes: ['idGuild', 'idEmoji', 'idRole', 'strName'],
+                    where: { idGuild: interaction.guild.id, idGroup: idGroup },
+                });
+                if (!userReact) {
+                    interaction.reply({
+                        content: '👎 Nenhum emoji encontrado para esse grupo.',
+                    });
+                    break;
+                }
+
+                if (userGuild === null) {
+                    const embedFailed = new EmbedBuilder()
+                        .setDescription(
+                            '🤖 Você ainda não configurou o bot, use o comando /config',
+                        )
+                        .setColor(10944512);
+
+                    interaction.reply({
+                        embeds: [embedFailed],
+                    });
+                    break;
+                }
+
+                const channel = client.channels.cache.get(
+                    userGuild.ClassChannel,
+                );
+
+                const embedSucessEmojis = new EmbedBuilder()
+                    .setTitle(tituloEmbed)
+                    .setDescription(
+                        userReact
+                            .map(
+                                (id) =>
+                                    `<:${id.strName}:${id.idEmoji}> <@&${id.idRole}>`,
+                            )
+                            .join('\n'),
+                    )
+                    .setColor(0x0099ff)
+                    .setTimestamp();
+
+                const messageId = await channel.send({
+                    embeds: [embedSucessEmojis],
+                });
+
+                userReact.forEach((id) => {
+                    messageId
+                        .react(interaction.guild.emojis.cache.get(id.idEmoji))
+                        .then()
+                        .catch(console.error);
+                });
+
                 interaction.reply({
-                    content: `Teste: ${idEmoji}`,
+                    content: '🎉 Sistema de reações ativado com sucesso!',
                 });
 
                 break;

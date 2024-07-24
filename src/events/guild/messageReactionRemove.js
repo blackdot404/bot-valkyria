@@ -2,7 +2,7 @@ const UserReacts = require('../../models/UserReacts');
 const UserGuild = require('../../models/UserGuild');
 
 module.exports = {
-    name: 'messageReactionAdd',
+    name: 'messageReactionRemove',
     async execute(messageReaction, user) {
         if (user.bot) return;
         const userGuild = await UserGuild.findOne({
@@ -32,10 +32,10 @@ module.exports = {
             (r) => r.name === data.strRole,
         );
 
-        if (!role || !guildMember) return;
+        if (!guildMember) return;
 
-        if (!guildMember.roles.cache.get(role)) {
-            guildMember.roles.add(role);
+        if (guildMember.roles.cache.get(role)) {
+            guildMember.roles.remove(role);
         }
     },
 };

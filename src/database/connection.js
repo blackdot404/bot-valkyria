@@ -26,7 +26,7 @@ const sequelize = new Sequelize(
                 ca: caCert.toString(),
             },
         },
-        logging: true,
+        logging: false,
     },
 );
 module.exports = sequelize;

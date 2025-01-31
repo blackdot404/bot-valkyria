@@ -17,7 +17,7 @@ module.exports = {
         if (member.user.bot) return;
         const channel = data.Channel;
         const roleChannel = data.RoleChannel;
-        const recruitChannel = data.RecruitChannel;
+        // const recruitChannel = data.RecruitChannel;
 
         // const recruitChannel = data.RecruitChannel;
         const classChannel = data.ClassChannel;
@@ -41,11 +41,13 @@ module.exports = {
                     value: `<#${roleChannel}>`,
                     inline: true,
                 },
+                /*
                 {
                     name: ':handshake:Se apresente:',
                     value: `<#${recruitChannel}>`,
                     inline: true,
                 },
+                */
                 {
                     name: ':bow_and_arrow:Qual sua Classe?',
                     value: `<#${classChannel}>`,

@@ -8,7 +8,7 @@ const {
     ButtonBuilder,
 } = require('discord.js');
 const Canvas = require('@napi-rs/canvas');
-const path = require('path');
+// const path = require('path');
 
 const UserGuild = require('../../models/UserGuild');
 
@@ -40,9 +40,8 @@ module.exports = {
             .setColor(0x0099ff);
 
         const channel = client.channels.cache.get(data.RoleChannel);
-        const pathImage = path.resolve(
-            '/home/black/dev/bot-valkyria/src/img/rules.png',
-        );
+        const pathImage =
+            'https://raw.githubusercontent.com/blackdot404/bot-valkyria/refs/heads/main/src/img/rules.png';
         const canvas = Canvas.createCanvas(692, 317);
         const context = canvas.getContext('2d');
         const background = await Canvas.loadImage(pathImage);

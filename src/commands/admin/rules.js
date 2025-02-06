@@ -64,16 +64,16 @@ module.exports = {
                             \n- **Termos de Serviço e Diretrizes Comunitárias do Discord**
                             \nOs termos do Discord são aplicados neste servidor a todo momento, portanto, se familiarize com eles: https://dis.gd/terms & https://dis.gd/guidelines.
                             \n- **Comportamento dos Usuários**
-                            \nMantenha o respeito com todos os usuários e com as singularidades do Servidor. Brincadeira permitidas até onde o outro usuário permitir.
+                            \nMantenha o respeito com todos os usuários e com as singularidades do Servidor. Brincadeira permitidas até onde o outro usuário permitir. SENDO ASSIM, o mínimo exigido é que ajam de acordo com a idade. A zueira pode e deve reinar neste servidor, mas ela para de ser zueira e se torna desrespeito assim que a pessoa que está na outra ponta se demonstrar desagradada com tal — e isso não será tolerado.
                             \n- **Conteúdo NSFW**
                             \nConteúdo NSFW ou NSFL  é proibido, qualquer propagação deste conteúdo será banido permanentemente.
                             \n- **Spam**
                             \nSpam de qualquer tipo não é permitido em nenhum canal. Nosso objetivo é manter todos os canais limpos e organizados, sem ter um monte de spam presente.
-                            \n- **Divulgação**
-                            \nQualquer tipo de divulgação não é permitida neste servidor, serão atendidos com sua remoção temporária ou permanente deste servidor.
+                            \n- **RMT ou Trocas**
+                            \nNão mediamos nem ajudamos em disputas relacionadas a trocas. Todas devem ser feitas de maneira responsável e dentro das regras propostas pelo servidor do jogo. Portanto, mesmo que tenhamos canais de anúncios para venda e compra, pedimos que as negociações sejam feitas por voz ou texto privado.
                             \n- **Administração do Servidor**
-                            \nO servidor é composto pelo <@&1262715370066804787>, os maiores cargos. Cada um tem sua jurisdição no servidor, portanto, respeite.
-                            \nSe você concorda com todas as regras listadas clique no botão abaixo, para que o recrutamento seja liberado.
+                            \nO servidor é composto pelo <@&1262715370066804787> e <@&1336505822431285320> os maiores cargos. Cada um tem sua jurisdição no servidor, portanto, respeite.
+                            \nSe você concorda com todas as regras listadas clique no botão abaixo, para que o servidor seja liberado.
                             `);
 
         channel.send({

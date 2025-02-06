@@ -28,7 +28,7 @@ module.exports = {
             .setTitle(':mega: Bem vindo(a) :mega:')
             .setDescription(
                 `**${member}**, bem-vindo(a) ao servidor **${guild.name}**!
-                \nLeia as regras para liberar o recrutamento
+                \nLeia as regras para liberar o acesso ao servidor
                 \nAtualmente estamos com **${guild.memberCount} membros**.
                 \nVeja também :point_down:
                 \n`,
